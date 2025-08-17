@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>페어웨이에서 영원히 ⛳️ | Golf Life</title>
+  <meta name="description" content="평생 골프만 치다 마지막 퍼팅까지! 화사하고 유쾌한 골프 라이프 홈페이지" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="페어웨이에서 영원히 ⛳️" />
+  <meta property="og:description" content="오늘도 내일도, 마지막 퍼팅까지 골프만! 즐거움과 위트로 채운 공간" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/10b981/ffffff&text=Golf+Life+%E2%9B%B3%EF%B8%8F" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2252%22>⛳️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f0fbf7;
+      --bg2:#eaf6ff;
+      --fg: #0f172a;
+      --muted:#64748b;
+      --brand:#10b981;
+      --brand2:#38bdf8;
+      --card:#ffffffcc;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:Inter,Pretendard,system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:var(--fg);background:
+      radial-gradient(1200px 600px at 10% -10%, var(--bg2), transparent 50%),
+      radial-gradient(1000px 600px at 100% 0%, var(--bg), transparent 60%),
+      #ffffff;}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-weight:800;font-size:20px;letter-spacing:.2px}
+    .logo span{color:var(--brand)}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;padding:40px 0}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;border-radius:999px;padding:8px 14px;font-weight:700;box-shadow:0 8px 24px #0000001a}
+    h1{font-size:48px;line-height:1.05;margin:16px 0 12px}
+    .sub{color:var(--muted);font-size:18px}
+    .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+    .btn{padding:14px 18px;border-radius:14px;border:0;font-weight:800;cursor:pointer}
+    .primary{background:var(--brand);color:#fff;box-shadow:0 10px 20px #10b98140}
+    .ghost{background:#fff;color:var(--fg);border:2px solid #e2e8f0}
+    .card{background:var(--card);backdrop-filter:saturate(140%) blur(6px);border-radius:20px;padding:20px;box-shadow:0 10px 30px #00000010}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .feature h3{margin:8px 0 6px}
+    .hero-illust{aspect-ratio:1.1/1;border-radius:24px;background:
+      linear-gradient(160deg,#fff, #f7fffb);
+      border:1px solid #e2e8f0;box-shadow:0 20px 60px #00000012;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .hero-illust:before{
+      content:"";position:absolute;inset:-30% -20% auto auto;height:70%;width:70%;
+      background:radial-gradient(closest-side,#c7f9e5 0,#c7f9e500 70%);
+      filter:blur(30px);transform:rotate(15deg)
+    }
+    .hero-illust .golfman{font-size:96px;transform:translateY(-6px)}
+    .marquee{overflow:hidden;white-space:nowrap;border-radius:14px;border:1px dashed #d1fae5;background:#f0fdf4;color:#065f46;padding:10px;margin-top:18px;font-weight:700}
+    .row{display:flex;gap:14px;align-items:center}
+    .quote{font-size:18px}
+    .pill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #e2e8f0}
+    footer{margin-top:56px;padding:26px 0 32px;color:var(--muted);text-align:center;font-size:14px}
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      h1{font-size:38px}
+      .grid{grid-template-columns:1fr}
+    }
+    /* cute micro-animations */
+    .float{animation:float 5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .pulse{animation:pulse 2.2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #10b98140}50%{box-shadow:0 0 0 10px #10b98110}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Golf <span>Life</span> ⛳️</div>
+      <nav>
+        <a href="#why">왜 골프?</a>
+        <a href="#features">무드</a>
+        <a href="#join">시작하기</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="badge pulse">💚 평생 골프 프로젝트</div>
+        <h1>오늘도 내일도,<br> <strong>마지막 퍼팅까지!</strong> ⛳️</h1>
+        <p class="sub">
+          “일하고 쉬고 또 골프!”<br>
+          페어웨이에서 해 뜨고 지는 날까지, 위트와 여유로 채우는 <b>골프 라이프</b>를 소개합니다.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#join">라운드 예약하기 🏌️‍♂️</a>
+          <a class="btn ghost" href="#features">분위기 구경하기 🌤️</a>
+        </div>
+
+        <div class="marquee float">✨ “드라이버는 우정, 퍼팅은 사랑, 벙커는 인내.”  |  🧃 19홀에서는 칭찬만 가능  |  📒 스코어는 기록하고, 추억은 저장!</div>
+
+        <div id="why" class="grid">
+          <div class="card feature">
+            <div>🌞</div>
+            <h3>해 뜨면 티샷</h3>
+            <p class="muted">아침 햇살에 비타민D 충전. “내 비거리도 10야드 충전된 느낌!”</p>
+          </div>
+          <div class="card feature">
+            <div>🫶</div>
+            <h3>친구는 페어웨이에서</h3>
+            <p class="muted">버디보다 값진 건 ‘나이스!’ 한마디. 칭찬이 곧 멘탈 케어.</p>
+          </div>
+          <div class="card feature">
+            <div>📈</div>
+            <h3>매일 1% 상향</h3>
+            <p class="muted">루틴·템포·마인드셋, 소소하게 쌓이면 핸디는 내려갑니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-illust float" aria-hidden="true" title="따뜻한 골프 라이프 일러스트">
+        <div class="golfman">🏡⛳️🌿</div>
+      </div>
+    </section>
+
+    <section id="features" class="card" style="margin-top:8px">
+      <div class="row">
+        <div class="pill">☕️ 새벽 티타임</div>
+        <div class="pill">🎶 버디 브금</div>
+        <div class="pill">🍀 멘탈 세이프존</div>
+        <div class="pill">🧑‍🍳 19홀 브런치</div>
+      </div>
+      <p class="quote" style="margin-top:12px">
+        “골프는 인생의 축소판. 가끔 러프에 들어가도, 웃으며 레이업하면 다시 페어웨이!” 😄
+      </p>
+    </section>
+
+    <section id="join" class="card" style="margin-top:18px">
+      <h2 style="margin:0 0 8px">함께 칠까요? 🎯</h2>
+      <p class="sub">초보도, 싱글도, ‘천재 백돌이’도 환영합니다. 드레스코드는 웃음! 😆</p>
+      <form onsubmit="event.preventDefault(); alert('환영해요! 라운드 소식 보내드릴게요 ⛳️');">
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:14px">
+          <input aria-label="이메일" type="email" placeholder="이메일 입력" required
+                 style="padding:14px 16px;border:1.5px solid #dbeafe;border-radius:14px;font-size:16px">
+          <button class="btn primary" type="submit">소식 받기 📬</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      ⛳️ Golf Life — Fairway, Friends & Fun.<br>
+      <small>※ 유머는 진지하게, 플레이는 즐겁게! 건강과 안전을 항상 우선해요.</small>
+    </footer>
+  </div>
+</body>
+</html>
