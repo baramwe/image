@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#0f1520; --text:#e8edf5; --muted:#98a4b4; --brand:#11a6ff; --brand-2:#6ee7ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;color:var(--text);background:linear-gradient(180deg,#05070b, var(--bg));font-family:Pretendard,Outfit,system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans KR',sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    /* Header */
+    .hd{position:fixed;inset:0 0 auto 0;z-index:60;height:64px;display:flex;align-items:center;gap:14px;padding:0 16px;background:linear-gradient(180deg,rgba(0,0,0,.6),transparent);backdrop-filter:saturate(120%) blur(6px)}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo-badge{width:32px;height:32px;border-radius:10px;background:radial-gradient(circle at 30% 20%,var(--brand-2),var(--brand));display:grid;place-items:center}
+    .spacer{flex:1}
+    .nav{display:flex;gap:18px}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
+    .book{display:inline-flex;align-items:center;gap:8px;padding:.6rem .9rem;border-radius:999px;background:var(--brand);color:#00131f;font-weight:800}
+    .book i{font-style:normal}
+    .ham{display:none;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff}
+
+    /* Sections */
+    main{min-height:100svh}
+    section{position:relative}
+    .container{max-width:1160px;margin:0 auto;padding:0 16px}
+    .section-pad{padding:96px 0}
+    h1,h2,h3,p{margin:0}
+    h1{font:700 clamp(28px,5vw,56px)/1.1 Outfit, sans-serif}
+    h2{font:700 clamp(22px,4vw,36px)/1.2 Outfit, sans-serif}
+    .lead{margin-top:10px;color:var(--muted)}
+
+    /* Hero */
+    .hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;}
+    .hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden}
+    .hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;filter:saturate(105%) contrast(105%)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,.55) 40%,rgba(0,0,0,.75));}
+    .hero-inner{display:grid;place-items:center;text-align:center;padding:0 16px}
+    .scroll-hint{display:flex;gap:10px;align-items:center;justify-content:center;padding:26px 0 38px;color:#c7d4e7;opacity:.9}
+
+    /* Chips */
+    .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+    .chip{padding:.5rem .75rem;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+
+    /* Features grid */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr);margin-top:26px}
+    .card{grid-column:span 6;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
+    .card img{aspect-ratio:16/11;width:100%;object-fit:cover}
+    .card .pad{padding:14px 16px}
+    .card .title{font-weight:700}
+    .card .desc{color:var(--muted);margin-top:6px}
+
+    /* Rooms scroller */
+    .rooms{background:#0a121d}
+    .hscroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 4px 10px;margin-top:14px}
+    .hscroll::-webkit-scrollbar{height:6px}
+    .hscroll::-webkit-scrollbar-thumb{background:#1b2433;border-radius:999px}
+    .room{scroll-snap-align:center;flex:0 0 84vw;max-width:520px;border-radius:18px;overflow:hidden;background:var(--card);border:1px solid rgba(255,255,255,.06);position:relative}
+    .room img{aspect-ratio:16/10;width:100%;object-fit:cover}
+    .room .caption{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);color:#fff;padding:10px 12px;border-radius:12px}
+
+    /* Gallery strip */
+    .strip{display:flex;gap:12px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);margin-top:22px}
+    .tile{flex:0 0 22vw;min-width:180px;aspect-ratio:16/10;border-radius:14px;overflow:hidden}
+    .marquee{display:flex;gap:12px;animation:marquee 38s linear infinite}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+
+    /* Footer */
+    footer{padding:46px 0;background:#070c12}
+    .footer-grid{display:grid;gap:10px;color:#cdd6e7}
+    .muted{color:#9fafc2}
+
+    /* Responsive */
+    @media (max-width: 768px){
+      .nav{display:none}
+      .ham{display:grid;place-items:center}
+      .card{grid-column:span 12}
+    }
+  </style>
+</head>
+<body>
+  <main id="home">
+    <!-- ABOUT / FEATURES -->
+    <section id="about" class="section-pad container">
+      <h2>About Us</h2>
+      <p class="lead">안락함과 노을을 가장 가까이서 즐길 수 있는 감성 펜션. 넓은 대지 위에서 프라이빗한 휴식을 누려보세요.</p>
+      <div class="grid" aria-label="주요 시설">
+        <article class="card">
+          <img src="https://baramwe.github.io/image/golf/ai/barbecue1.png" alt="바베큐 테라스" />
+          <div class="pad">
+            <div class="title">🍖 개별 바베큐 테라스</div>
+            <p class="desc">오션뷰를 바라보며 프라이빗하게 즐기는 바베큐.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://baramwe.github.io/image/golf/ai/hotel-7.png" alt="정원" />
+          <div class="pad">
+            <div class="title">🌳 정원 & 산책로</div>
+            <p class="desc">싱그러운 숲과 잔디정원, 여유로운 산책 코스.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROOMS / HORIZONTAL SCROLLER -->
+    <section id="rooms" class="rooms section-pad">
+      <div class="container">
+        <h2>Rooms</h2>
+        <p class="lead">좌우로 넘겨 다양한 타입을 확인하세요.</p>
+        <div class="hscroll" aria-label="숙소 미리보기">
+          <a class="room" href="#">
+            <img src="https://baramwe.github.io/image/golf/ai/america-1.png" alt="제주 오션뷰" />
+            <div class="caption">제주</div>
+          </a>
+          <a class="room" href="#">
+            <img src="https://baramwe.github.io/image/golf/ai/golf-6.png" alt="오사카" />
+            <div class="caption">오사카</div>
+          </a>
+          <a class="room" href="#">
+            <img src="https://baramwe.github.io/image/golf/ai/asia-1.png" alt="후쿠오카 패밀리" />
+            <div class="caption">후쿠오카</div>
+          </a>
+          <a class="room" href="#">
+            <img src="https://baramwe.github.io/image/golf/ai/hotel-4.png" alt="삿포로" />
+            <div class="caption">삿포로</div>
+          </a>
+          <a class="room" href="#">
+            <img src="https://baramwe.github.io/image/golf/ai/hotel-2.png" alt="구마모토 스파룸" />
+            <div class="caption">구마모토 ♨️</div>
+          </a>
+        </div>
+        <p style="margin-top:18px"><a class="book" href="https://orient.staeasy.kr/booking" target="_blank" rel="noopener">지금 예약하기 🔔</a></p>
+      </div>
+    </section>
+
+    <!-- GALLERY STRIP -->
+    <section id="gallery" class="section-pad container">
+      <h2>Gallery</h2>
+      <p class="lead">감성 한 컷. 오션뷰와 노을을 담았습니다.</p>
+      <div class="strip" aria-hidden="true">
+        <div class="marquee">
+          <div class="tile"><img src="https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <!-- duplicate for seamless loop -->
+          <div class="tile"><img src="https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+          <div class="tile"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1600&auto=format&fit=crop" alt=""/></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 간단한 모바일 메뉴: 헤더의 앵커를 토글 (필요시 확장)
+    const ham=document.getElementById('ham');
+    ham?.addEventListener('click',()=>{
+      const nav=document.querySelector('.nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
